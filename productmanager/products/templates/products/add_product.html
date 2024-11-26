@@ -1,0 +1,27 @@
+{% extends 'products/layout.html' %}
+
+{% block title %}Добавить продукт{% endblock %}
+
+{% block content %}
+<h1>Добавить продукт</h1>
+    <form action="{% url 'add_product' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <label>
+          <span>Название товара</span>
+           <input type="text" name="name" placeholder="Название товара">
+        </label>
+
+        <label for="description">
+            <span>Описание</span>
+            <input type="text" name="description" placeholder="Описание">
+        </label>
+
+       <label for="price">
+            <span>Цена</span>
+           <input type="float" name="price" placeholder="Цена">
+       </label>
+
+        <input type="submit">
+    </form>
+{% endblock %}
